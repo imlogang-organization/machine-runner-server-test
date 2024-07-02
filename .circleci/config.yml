@@ -5,6 +5,12 @@ jobs:
     machine: true
     resource_class: imlogang-organization-server/machine-runner
     steps:
+      - run: |
+            echo 'export NVM_DIR="/home/logan/.nvm"' >> $BASH_ENV
+            echo 'source $NVM_DIR/nvm.sh' >> $BASH_ENV
+            echo 'export PATH=$NVM_DIR/versions/node/$(nvm version)/bin:$PATH' >> $BASH_ENV
+            source $BASH_ENV
+            nvm --help
       - run: nvm --help
 
 workflows:
