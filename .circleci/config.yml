@@ -1,0 +1,13 @@
+version: 2.1
+
+jobs:
+  test:
+    machine: true
+    resource_class: imlogang-organization-server/machine-runner
+    steps:
+      - run: nvm --help
+
+workflows:
+  test:
+    jobs:
+      - test
